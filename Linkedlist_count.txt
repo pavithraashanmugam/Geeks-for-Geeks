@@ -1,0 +1,20 @@
+//Given a singly linked list. The task is to find the length of the linked list, where length is
+//defined as the number of nodes in the linked list.
+
+
+
+class Solution
+{
+    //Function to count nodes of a linked list.
+    public static int getCount(Node head)
+    {
+        Node current = head;
+        int count =0;
+        while(current != null){
+            count=count+1;
+            current = current.next;
+        }
+        return count;
+    }
+}
+    
