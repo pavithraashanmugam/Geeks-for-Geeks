@@ -1,0 +1,30 @@
+//Given two strings a and b consisting of lowercase characters. The task is to check whether two //given strings are an anagram of each other or not. An anagram of a string is another string that //contains the same characters, only the order of characters can be different. For example, act and //tac are an anagram of each other.
+
+Note:-
+
+class Solution
+{    
+    //Function is to check whether two strings are anagram of each other or not.
+    public static boolean isAnagram(String a,String b)
+    {
+        
+        char[] one = new char[a.length()];
+        char[] two = new char[b.length()];
+        
+        one=a.toCharArray();
+        two=b.toCharArray();
+        
+        Arrays.sort(one);
+        Arrays.sort(two);
+
+        if(a.length() != b.length()){
+            return false;
+        }
+        
+        if(Arrays.equals(one,two)){
+            return true;
+        }
+        
+        return false;
+    }
+}
