@@ -1,0 +1,39 @@
+//Given an unsorted array A of size N that contains only positive integers, find a continuous sub- //array that adds to a given number S and return the left and right index(1-based indexing) of that //subarray.
+
+//In case of multiple subarrays, return the subarray indexes which come first on moving from left to //right.
+
+//Note:- You have to return an ArrayList consisting of two elements left and right. In case no such //subarray exists return an array consisting of element -1.
+
+
+
+
+class Solution
+{
+    //Function to find a continuous sub-array which adds up to a given number.
+    static ArrayList<Integer> subarraySum(int[] arr, int n, int s) 
+    {
+         ArrayList<Integer> subArr = new ArrayList<Integer>();
+        if (s == 0) {
+            subArr.add(-1);
+            return subArr;
+        }
+        int i = 0;
+        int j = 0 ;
+        int sum = 0;
+        for (i = 0; i < n; i++) {
+            while (sum < s && j < n) {
+                sum = sum + arr[j];
+                j++;
+            }
+            if (sum == s) {
+                subArr.add(i + 1);
+                subArr.add(j);
+                return subArr;
+            } else {
+                sum = sum - arr[i];
+            }
+        }
+        subArr.add(-1);
+        return subArr;
+    }
+}
