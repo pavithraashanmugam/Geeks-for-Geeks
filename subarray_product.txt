@@ -1,0 +1,27 @@
+//Given an array of positive numbers, the task is to find the number of possible contiguous subarrays //having product less than a given number k.
+
+
+class Solution {
+    
+    public int countSubArrayProductLessThanK(long a[], int n, long k)
+    {
+        long pro=0;
+        int count=0;
+        for(int i=0;i<n;i++){
+            pro=a[i];
+            if(pro<k){
+                count++;
+            }
+            for(int j=i+1;j<n;j++){
+                pro=pro*a[j];
+                if(pro<k){
+                    count++;
+                }
+                else{
+                    break;
+                }
+            }
+        }
+        return count;
+    }
+}
