@@ -1,0 +1,25 @@
+//Given a boolean 2D array of n x m dimensions where each row is sorted. 
+//Find the 0-based index of the first row that has the maximum number of 1's.
+
+
+class Solution {
+    int rowWithMax1s(int arr[][], int n, int m) {
+        // code here
+        int pos=-1;
+        int res=0;
+        for(int i=0;i<n;i++){
+            int count=0;
+            for(int j=0;j<m;j++){
+                if(arr[i][j]==1){
+                    count=count+1;
+                }
+            }
+            if(res<count){
+            res=count;
+            pos=i;
+            }
+            
+        }
+        return pos;
+    }
+}
